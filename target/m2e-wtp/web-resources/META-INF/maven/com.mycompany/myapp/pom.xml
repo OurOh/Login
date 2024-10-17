@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://www.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 프로젝트 기본 정보 -->
+    <groupId>com.mycompany</groupId>
+    <artifactId>myapp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging> <!-- 웹 애플리케이션으로 패키징 -->
+
+    <!-- Java 버전 설정 -->
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source> <!-- JDK 11 사용 -->
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- 의존성 추가 -->
+    <dependencies>
+        <!-- Spring Web MVC -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.10</version> <!-- 최신 Spring 버전 확인 가능 -->
+        </dependency>
+
+        <!-- Spring Context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.10</version>
+        </dependency>
+
+        <!-- Lombok: 자동으로 Getter, Setter 생성 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope> <!-- 컴파일 단계에서만 사용 -->
+        </dependency>
+
+        <!-- MyBatis: 데이터베이스와의 매핑을 쉽게 하기 위한 프레임워크 -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+
+        <!-- MySQL JDBC 드라이버: MySQL과 연결하기 위한 드라이버 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.26</version>
+        </dependency>
+
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope> <!-- 서버에서 제공 -->
+        </dependency>
+
+        <!-- JSP EL (Expression Language) API -->
+        <dependency>
+            <groupId>javax.el</groupId>
+            <artifactId>javax.el-api</artifactId>
+            <version>3.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JSTL: JSP에서 사용하는 태그 라이브러리 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <!-- Standard Tag Library: JSTL 사용을 위한 추가 의존성 -->
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        
+        <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-dbcp2</artifactId>
+    <version>2.7.0</version> <!-- 버전은 최신 버전에 맞게 조정하세요 -->
+</dependency>
+        
+        
+        
+        
+    </dependencies>
+
+    <!-- 빌드 플러그인 설정 -->
+    <build>
+        <finalName>myapp</finalName> <!-- WAR 파일 이름 설정 -->
+
+        <plugins>
+            <!-- Maven Compiler Plugin: Java 컴파일 설정 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source> <!-- 소스 코드 호환성 -->
+                    <target>11</target> <!-- 타겟 JVM 버전 -->
+                </configuration>
+            </plugin>
+
+            <!-- Maven WAR Plugin: 웹 애플리케이션을 WAR 파일로 패키징 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml> <!-- web.xml 없이도 동작 가능 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
